@@ -9,6 +9,9 @@ services:
   nginx:
     image: nginx:stable-alpine
     restart: unless-stopped
+    container_name: myn
+    depends_on:
+      - artisan
     ports:
       - 8000:80
     volumes:
