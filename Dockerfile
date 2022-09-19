@@ -6,8 +6,12 @@ RUN apt-get update && apt-get install git zip unzip -y
 
 RUN groupadd -g 1001 app && useradd -m -u 1001 -g app app
 
+RUN mkdir -p /app
+
+RUN chown app /app
+
 USER app
 
-WORKDIR /var/www/html
+WORKDIR /app
 
 COPY --chown=app:app . .
